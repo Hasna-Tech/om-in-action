@@ -1,0 +1,50 @@
+.game {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background-image: url('../../../assets/bg.png');
+  position: relative;
+  .abs{
+      position: absolute;
+      z-index: 1;
+  }
+  .road_path{
+    left: -76px;
+    top: 673px;
+  }
+  .road{
+    left: -76px;
+    top: 323px;
+  }
+  .building1{
+    left: 284px;
+    top: 549px;
+    transform: scale(0);
+  }
+  .tree1{
+    left: 397px;
+    top: 551px;
+    transform: scale(0);
+  }
+  .selection1{
+    left: 111px;
+    top: 425px; 
+    transform: scale(0);
+  }
+  .Truck1{
+    left: 128px;
+    top: 792px; 
+  }
+
+  .Truck2{
+    left: 409px;
+    top: 630px;
+    opacity: 0;
+  }
+}
+
+drag-scroll {
+  .drag-scroll-content {
+    overflow: hidden !important;
+  }
+}
