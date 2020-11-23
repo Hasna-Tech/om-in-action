@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, HostListener, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import gsap from 'gsap';
-import { TimelineMax } from 'gsap/all';
+import { TimelineMax, Linear } from 'gsap/all';
 import MotionPathPlugin from 'gsap/MotionPathPlugin';
 
 @Component({
@@ -159,6 +159,7 @@ export class GameComponent implements AfterViewInit {
   }
 
   action(step) {
+    console.log('action ' + step);
     if (this.tl) {
       this.tl.clear();
     }
@@ -185,21 +186,97 @@ export class GameComponent implements AfterViewInit {
         });
         break;
 
-        case 3:
-          this.tl.to('#truck2', {
-            x: 240, y: 140, duration: this.speed, onComplete: () => {
-              // this.getQuiz(2);
-              this.tl.set('#truck2', { opacity: 0 });
-              this.tl.set('#truck1', { opacity: 1 });
-              this.tl.fromTo('#truck1', { x: -161, y: 100 }, {
-                x: 229, y: -140, duration: 5, onComplete: () => {
-                  //this.getQuiz(1);
-                }
-              });
+      case 3:
+        this.tl.to('#truck2', {
+          x: 240, y: 140, duration: this.speed, ease: Linear, onComplete: () => {
+            // this.getQuiz(2);
+            this.tl.set('#truck2', { opacity: 0 });
+            this.tl.set('#truck1', { opacity: 1 });
+            this.tl.fromTo('#truck1', { x: 550, y: -15 }, {
+              x: 723, y: -111, duration: this.speed, onComplete: () => {
+                //this.getQuiz(1);
+                this.action(4);
+              }
+            });
 
-            }
-          });
-          break;
+          }
+        });
+        break;
+
+
+      case 4:
+        this.tl.set('#truck2', { opacity: 1 });
+        this.tl.set('#truck1', { opacity: 0 });
+        this.tl.fromTo('#truck2', { x: 500, y: 40 }, {
+          x: 700, y: 165, duration: this.speed, ease: Linear, onComplete: () => {
+            this.tl.set('#truck2', { opacity: 0 });
+            this.tl.set('#truck1', { opacity: 1 });
+            this.tl.fromTo('#truck1', { x: 1025, y: 20 }, {
+              x: 1150, y: -40, duration: this.speed, onComplete: () => {
+                //this.getQuiz(1);
+                this.action(5);
+              }
+            });
+          }
+        });
+        break;
+
+
+      case 5:
+        this.tl.fromTo('#truck1', { x: 1150, y: -40 }, {
+          x: 1260, y: -110, duration: this.speed, ease: Linear, onComplete: () => {
+            this.tl.set('#truck1', { opacity: 0 });
+            this.tl.set('#truck3', { opacity: 1 });
+            this.tl.fromTo('#truck3', { x: 1394, y: 640 }, {
+              x: 1125, y: 471, duration: this.speed, onComplete: () => {
+                //this.getQuiz(1);
+                //console.log('came here');
+                this.tl.set('#truck1', { opacity: 1 });
+                this.tl.set('#truck3', { opacity: 0 });
+                this.tl.fromTo('#truck1', { x: 1013, y: -365 }, {
+                  x: 1043, y: -380, duration: this.speed, onComplete: () => {
+
+                    this.action(6);
+                  }
+                });
+              }
+            });
+          }
+        });
+        break;
+
+
+      case 6:
+        this.tl.fromTo('#truck1', { x: 1043, y: -380 }, {
+          x: 1209, y: -475, duration: this.speed, onComplete: () => {
+            this.tl.set('#truck1', { opacity: 0 });
+            this.tl.set('#truck2', { opacity: 1 });
+            this.tl.fromTo('#truck2', { x: 1000, y: -300 }, {
+              x: 1000, y: -300, duration: this.speed, onComplete: () => {
+
+                this.action(7);
+              }
+            });
+          }
+        });
+        break;
+
+      case 7:
+        this.tl.to('#truck2', {
+          x: 1184, y: -200, duration: this.speed, onComplete: () => {
+            this.action(8);
+          }
+        });
+        break;
+
+      case 8:
+        this.tl.to('#truck2', {
+          x: 1484, y: -38, duration: this.speed, onComplete: () => {
+            this.action(8);
+          }
+        });
+        break;
+
 
       default:
         break;
