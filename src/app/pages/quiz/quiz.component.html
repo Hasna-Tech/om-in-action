@@ -1,0 +1,86 @@
+  <div id="quiz" class="quiz flex fcenter" *ngIf="showPanel">
+    <div class="instructor" *ngIf="showQuizScreen != 'quiz'">
+      <img src="assets/man.png" alt="Man">
+    </div>
+    <div class="panel">
+      <div class="intro" *ngIf="showQuizScreen == 'intro'">
+        <h2>Instructions </h2>
+        <p>Welcome to this dynamic game where you can apply the knowledge you’ve gained to create a great order
+          experience for the customer. </p>
+
+        <p>In this game you’ll go through the Order Management process as a Customer Service Representative. In each
+          scenario, you will choose the ideal way to serve customers, in alignment with the service level they expect,
+          to achieve mutually winning outcomes. Each decision you make will impact the customer experience. </p>
+
+        <p>As you navigate through the challenges, <b>Think Forward</b>. You’ve seen what Cargill is working towards in
+          Order
+          Management to drive customer value and ensure seamless delivery. Although some processes and technology may
+          not be fully implemented today, consider what you have learned and how you can best apply it.</p>
+
+        <p>Read the instructions carefully before you begin. </p>
+        <div class="text-center">
+          <button class="primary-btn" (click)=" this.showQuizScreen = 'rule'">Next</button>
+        </div>
+
+      </div>
+
+      <div class="rule" *ngIf="showQuizScreen == 'rule'">
+        <h2>About the Game </h2>
+        <p>Your journey begins with an order request scenario and runs through the end-to-end process 
+          with the customer.
+          <ul>
+            <li>Each question is worth 100 points, and you can attempt each question only once.</li>
+            <li>There are a couple hidden “Proactive Behavior” questions. These are focused on positive behaviors that
+              drive exceptional performance and ones we want to see more of in action. For correct answers here, you
+              will earn bonus badges!</li>
+            <li>You need to score at least <b>600 points</b> to win.</li>
+          </ul>
+          <p>Are you ready to get into the Game? <b>Click Start and let’s begin! </b></p>
+          <div class="text-center">
+            <button class="primary-btn" (click)="action(1)">Start</button>
+          </div>
+
+      </div>
+
+      <div *ngIf="showQuizScreen == 'quiz'">
+        <div class="question" *ngIf="selectedQuiz.submitted != true">
+          <div class="flex">
+            <div class="icon"></div>
+            <div class="title">
+              <h2>{{selectedQuiz.title}}</h2>
+            </div>
+          </div>
+          <div class="text">
+            {{selectedQuiz.question}}
+          </div>
+          <div class="text-center instr">
+            {{selectedQuiz.instr}}
+          </div>
+          <div class="choices">
+            <div *ngFor="let item of selectedQuiz.choices; let i = index">
+              <div class="flex choice" (click)="selectedQuiz.selected = i">
+                <div class="single-choice">
+                  <div class="dot" [ngClass]="{'active' : selectedQuiz.selected == i}"></div>
+                </div>
+                <div class="text">
+                  {{item.text}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center submit">
+            <button class="primary-btn" (click)="quizSubmit(selectedQuiz)">Submit</button>
+          </div>
+        </div>
+
+
+        <div class="feedback" *ngIf="selectedQuiz.submitted == true">
+          <div *ngIf="selectedQuiz.correct == true" [innerHTML]="selectedQuiz.feedback.correct"></div>
+          <div *ngIf="selectedQuiz.correct == false" [innerHTML]="selectedQuiz.feedback.incorrect"></div>
+          <div class="text-center submit">
+            <button class="primary-btn">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

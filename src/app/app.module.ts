@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GameComponent } from './pages/game/game.component';
 import { DragScrollModule } from 'ngx-drag-scroll';
+import { QuizComponent } from './pages/quiz/quiz.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    GameComponent
+    GameComponent,
+    QuizComponent
   ],
   imports: [
     DragScrollModule,
