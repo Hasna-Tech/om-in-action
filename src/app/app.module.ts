@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { GameComponent } from './pages/game/game.component';
 import { DragScrollModule } from 'ngx-drag-scroll';
 import { QuizComponent } from './pages/quiz/quiz.component';
-
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -16,6 +16,7 @@ import { QuizComponent } from './pages/quiz/quiz.component';
   ],
   imports: [
     DragScrollModule,
+    DragDropModule,
     BrowserModule,
     AppRoutingModule
   ],

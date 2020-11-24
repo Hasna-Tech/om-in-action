@@ -2,6 +2,8 @@ import { AfterViewInit, Component, HostListener, OnInit, ViewChild, ViewEncapsul
 import gsap from 'gsap';
 import { TimelineMax, Linear } from 'gsap/all';
 import MotionPathPlugin from 'gsap/MotionPathPlugin';
+import { data } from './data';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-game',
@@ -13,107 +15,12 @@ export class GameComponent implements AfterViewInit {
 
   tl;
   showPanel = true;
-  // showQuizScreen = 'intro';
-  showQuizScreen = 'quiz';
+   showQuizScreen = 'intro';
+  // showQuizScreen = 'quiz';
   score = 0;
   speed = 1;
   step = 1;
-
-  questions = [
-    {
-      type: 'single_choice',
-      title: 'Customer Care Management',
-      question: 'You receive an order request from the Customer asking Cargill to deliver goods. What steps should you follow before the order is entered in our systems?',
-      instr: 'Choose the correct option.',
-      selected: -1,
-      submitted: false,
-      choices: [
-        {
-          text: 'Promptly ensure everything is set-up correctly in our systems so the Customer has a seamless experience.',
-          correct: true,
-
-        },
-        {
-          text: 'Read the request notes carefully. Perform updates exactly as they are outlined. Do nothing further.',
-          correct: false,
-        },
-        {
-          text: 'Hold the order request. Contact the Customer to double check and review all the details they submitted. Document your notes in a notebook or use post-it notes, and then save them to enter when you have all your responses from the Customer.',
-          correct: false,
-        },
-        {
-          text: 'Review and double check the details with the Customer. Wait to enter the details into the system until the day before the loading date.',
-          correct: false,
-        }
-      ],
-      feedback:
-      {
-        correct: `<h2 class='correct'>Great job! You are correct.</h2>
-        <p>When we promptly ensure everything is set-up correctly in our systems, we enable our customers to consistently experience a seamless Order Management process. Here are a few actions to keep in mind:</p>
-        <ul>
-          <li>After completing requests, proactively check other key areas, like the Master data fields, to ensure updates are made to applicable key systems so seamless order process occurs that allows for automation of tasks. When this occurs successfully, CSRs can spend more time engaging with the customers.</li>
-          <li>Validate the accuracy of key details like Ship To, Special Requests, confirming the products requested go to the right place and that their Incoterms are set up correctly. </li>
-          <li>Occasionally, for some manual requests you may review an invoice to validate details. </li>
-          <li>When a new customer is being setup, collaborate with the Commercial team and ensure that Service Level Agreements (SLA) are embedded in all systems in alignment with customer segmentation (where applicable).</li>
-        </ul>`,
-        incorrect: `<h2 class='correct'>Good try, but this is incorrect. Option A is the correct answer.</h2>
-        <p>When we promptly ensure everything is set-up correctly in our systems, we enable our customers to consistently experience a seamless Order Management process. Here are a few actions to keep in mind:</p>
-        <ul>
-          <li>After completing requests, proactively check other key areas, like the Master data fields, to ensure updates are made to applicable key systems so seamless order process occurs that allows for automation of tasks. When this occurs successfully, CSRs can spend more time engaging with the customers.</li>
-          <li>Validate the accuracy of key details like Ship To, Special Requests, confirming the products requested go to the right place and that their Incoterms are set up correctly. </li>
-          <li>Occasionally, for some manual requests you may review an invoice to validate details. </li>
-          <li>When a new customer is being setup, collaborate with the Commercial team and ensure that Service Level Agreements (SLA) are embedded in all systems in alignment with customer segmentation (where applicable).</li>
-        </ul>`
-      }
-    },
-    {
-      type: 'single_choice',
-      title: 'Customer Care Management',
-      question: '2. You receive an order request from the Customer asking Cargill to deliver goods. What steps should you follow before the order is entered in our systems?',
-      instr: 'Choose the correct option.',
-      selected: -1,
-      submitted: false,
-      choices: [
-        {
-          text: 'Promptly ensure everything is set-up correctly in our systems so the Customer has a seamless experience.',
-          correct: true,
-
-        },
-        {
-          text: 'Read the request notes carefully. Perform updates exactly as they are outlined. Do nothing further.',
-          correct: false,
-        },
-        {
-          text: 'Hold the order request. Contact the Customer to double check and review all the details they submitted. Document your notes in a notebook or use post-it notes, and then save them to enter when you have all your responses from the Customer.',
-          correct: false,
-        },
-        {
-          text: 'Review and double check the details with the Customer. Wait to enter the details into the system until the day before the loading date.',
-          correct: false,
-        }
-      ],
-      feedback:
-      {
-        correct: `<h2 class='correct'>Great job! You are correct.</h2>
-        <p>When we promptly ensure everything is set-up correctly in our systems, we enable our customers to consistently experience a seamless Order Management process. Here are a few actions to keep in mind:</p>
-        <ul>
-          <li>After completing requests, proactively check other key areas, like the Master data fields, to ensure updates are made to applicable key systems so seamless order process occurs that allows for automation of tasks. When this occurs successfully, CSRs can spend more time engaging with the customers.</li>
-          <li>Validate the accuracy of key details like Ship To, Special Requests, confirming the products requested go to the right place and that their Incoterms are set up correctly. </li>
-          <li>Occasionally, for some manual requests you may review an invoice to validate details. </li>
-          <li>When a new customer is being setup, collaborate with the Commercial team and ensure that Service Level Agreements (SLA) are embedded in all systems in alignment with customer segmentation (where applicable).</li>
-        </ul>`,
-        incorrect: `<h2 class='correct'>Good try, but this is incorrect. Option A is the correct answer.</h2>
-        <p>When we promptly ensure everything is set-up correctly in our systems, we enable our customers to consistently experience a seamless Order Management process. Here are a few actions to keep in mind:</p>
-        <ul>
-          <li>After completing requests, proactively check other key areas, like the Master data fields, to ensure updates are made to applicable key systems so seamless order process occurs that allows for automation of tasks. When this occurs successfully, CSRs can spend more time engaging with the customers.</li>
-          <li>Validate the accuracy of key details like Ship To, Special Requests, confirming the products requested go to the right place and that their Incoterms are set up correctly. </li>
-          <li>Occasionally, for some manual requests you may review an invoice to validate details. </li>
-          <li>When a new customer is being setup, collaborate with the Commercial team and ensure that Service Level Agreements (SLA) are embedded in all systems in alignment with customer segmentation (where applicable).</li>
-        </ul>`
-      }
-    }
-  ];
-
+  questions = data;
   quizNo = 0;
   selectedQuiz = this.questions[this.quizNo];
 
@@ -136,6 +43,7 @@ export class GameComponent implements AfterViewInit {
     this.tl.fromTo('#truck2', { x: 0, y: 0 }, { x: 240, y: 140, duration: 5 });
     */
     this.onResize(null);
+    this.getQuiz(this.quizNo + 1);
   }
 
   @HostListener('window:resize', ['$event']) onResize(event) {
@@ -153,13 +61,16 @@ export class GameComponent implements AfterViewInit {
       scaleH = height / 937;
     }
 
-    //console.log(scaleW, scaleH);
+    //console.log(scaleW, scaleH); 
     const scale = Math.min(scaleW, scaleH);
     game.style.transform = 'scale(' + scale + ')';
   }
 
   action(step) {
     console.log('action ' + step);
+    this.step = step;
+    this.showPanel = false;
+
     if (this.tl) {
       this.tl.clear();
     }
@@ -179,9 +90,9 @@ export class GameComponent implements AfterViewInit {
         this.tl.set('#truck1', { opacity: 0 });
         this.tl.set('#truck2', { opacity: 1, duration: 0.1 });
         this.tl.fromTo('#truck2', { x: 0, y: 0 }, {
-          x: 160, y: 92, duration: this.speed, onComplete: () => {
-            //this.getQuiz(2);
-            this.action(3);
+          x: 160, y: 92, duration: this.speed * 1.5, delay: 2, onComplete: () => {
+            this.getQuiz(2);
+            //this.action(3);
           }
         });
         break;
@@ -194,8 +105,8 @@ export class GameComponent implements AfterViewInit {
             this.tl.set('#truck1', { opacity: 1 });
             this.tl.fromTo('#truck1', { x: 550, y: -15 }, {
               x: 723, y: -111, duration: this.speed, onComplete: () => {
-                //this.getQuiz(1);
-                this.action(4);
+                 this.getQuiz(3);
+                // this.action(4);
               }
             });
 
@@ -213,8 +124,8 @@ export class GameComponent implements AfterViewInit {
             this.tl.set('#truck1', { opacity: 1 });
             this.tl.fromTo('#truck1', { x: 1025, y: 20 }, {
               x: 1150, y: -40, duration: this.speed, onComplete: () => {
-                //this.getQuiz(1);
-                this.action(5);
+                this.getQuiz(4);
+                //this.action(5);
               }
             });
           }
@@ -235,8 +146,8 @@ export class GameComponent implements AfterViewInit {
                 this.tl.set('#truck3', { opacity: 0 });
                 this.tl.fromTo('#truck1', { x: 1013, y: -365 }, {
                   x: 1043, y: -380, duration: this.speed, onComplete: () => {
-
-                    this.action(6);
+                    this.getQuiz(5);
+                    //this.action(6);
                   }
                 });
               }
@@ -253,8 +164,8 @@ export class GameComponent implements AfterViewInit {
             this.tl.set('#truck2', { opacity: 1 });
             this.tl.fromTo('#truck2', { x: 1000, y: -300 }, {
               x: 1000, y: -300, duration: this.speed, onComplete: () => {
-
-                this.action(7);
+                this.getQuiz(6);
+                //this.action(7);
               }
             });
           }
@@ -264,7 +175,8 @@ export class GameComponent implements AfterViewInit {
       case 7:
         this.tl.to('#truck2', {
           x: 1184, y: -200, duration: this.speed, onComplete: () => {
-            this.action(8);
+            this.getQuiz(7)
+            //this.action(8);
           }
         });
         break;
@@ -272,7 +184,8 @@ export class GameComponent implements AfterViewInit {
       case 8:
         this.tl.to('#truck2', {
           x: 1484, y: -38, duration: this.speed, onComplete: () => {
-            this.action(8);
+            // this.getQuiz(8);
+            //this.action(8);
           }
         });
         break;
@@ -284,7 +197,13 @@ export class GameComponent implements AfterViewInit {
   }
 
   getQuiz(step) {
-    this.step = step;
+    console.log('getQuiz = ' + step);
+    //this.step = step;
+    this.showPanel = true;
+    this.showQuizScreen = 'quiz';
+    this.selectedQuiz = this.questions[step - 1];
+    this.quizNo = step+1;
+
     switch (step) {
       case 1:
         this.showPanel = true;
@@ -309,12 +228,53 @@ export class GameComponent implements AfterViewInit {
         quiz.feedbackText = quiz.feedback.correct;
         console.log(this.score);
       } else {
-        this.score = 0;
+        //this.score = 0;
         quiz.correct = false;
         quiz.feedbackText = quiz.feedback.incorrect;
       }
-      quiz.submitted = true;
+      
       console.log(quiz);
     }
+    else if (quiz.type == 'sort_order')
+    {
+      let wrong = false;
+      for (let i = 0; i < quiz.choices.length; i++) {
+        const choice = quiz.choices[i];
+        if(choice.correct != i+1){
+          wrong = true;
+        }
+      }
+      if(wrong == false){
+        this.score += 100;
+        quiz.correct = true;
+        quiz.feedbackText = quiz.feedback.correct;
+      }else {
+        quiz.correct = false;
+        quiz.feedbackText = quiz.feedback.incorrect;
+      }
+    } else if (quiz.type == 'multiple_choice')
+    {
+      let wrong = false;
+      for (let i = 0; i < quiz.choices.length; i++) {
+        const choice = quiz.choices[i];
+        if(choice.correct != choice.selected){
+          wrong = true;
+        }
+      }
+      if(wrong == false){
+        this.score += 100;
+        quiz.correct = true;
+        quiz.feedbackText = quiz.feedback.correct;
+      }else {
+        quiz.correct = false;
+        quiz.feedbackText = quiz.feedback.incorrect;
+      }
+    }
+    quiz.submitted = true;
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    console.log(event.previousIndex, event.currentIndex);
+    moveItemInArray(this.selectedQuiz.choices, event.previousIndex, event.currentIndex);
   }
 }

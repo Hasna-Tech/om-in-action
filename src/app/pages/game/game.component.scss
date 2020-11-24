@@ -167,7 +167,9 @@ drag-scroll {
     cursor: pointer;
   }
 
-  .single-choice {
+  
+
+  .single-choice, .multi-choice{
     //width: 15px;
     //height: 15px;
     background-color: #FFF;
@@ -190,5 +192,23 @@ drag-scroll {
       border-radius: 50%;
       margin: 5px;
     }
+  }
+  .multi-choice{
+    border-radius: 0;
+    .dot{
+      border-radius: 0;
+    }
+  }
+}
+.sorting{
+  .label{
+    background-color: #005F86;
+    color: #fff;
+    border-radius: 50%;
+    padding: 5px 15px;
+    margin: 10px;
+    margin-top: 0px;
+    height: 30px;
+    font-size: 16px;
   }
 }

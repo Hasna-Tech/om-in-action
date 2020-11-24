@@ -1,4 +1,5 @@
-questions = [{
+export let data = [
+  {
     type: 'single_choice',
     title: 'Customer Care Management',
     question: 'You receive an order request from the Customer asking Cargill to deliver goods. What steps should you follow before the order is entered in our systems?',
@@ -44,7 +45,7 @@ questions = [{
   },
   {
     type: 'sort_order',
-    title: 'order_intake',
+    title: 'Order Intake',
     question: `As part of our future-forward aspirations, we strive to adopt automated system rules to support smooth order intake processes where possible. 
     Even when we implement automation on occasions, certain orders may be flagged and that’s our opportunity to be involved in closer review to ensure accuracy. Today, 
     you receive a message from a customer with a one-off Special Delivery request. The Customer wants the product loaded to a specific truck type. 
@@ -53,23 +54,28 @@ What steps should you follow?`,
     selected: -1,
     submitted: false,
     choices: [{
+        label: '1',
         text: 'Once you address the immediate request, ensure there are no other areas in the system that should be updated (i.e., Master data).',
         correct: 3,
 
       },
       {
+        label: '2',
         text: 'Check message details and validate that what is documented is correct.',
         correct: 1,
       },
       {
+        label: '3',
         text: 'Once the request is done, seek to understand why the Special Delivery request was needed. Was there an issue with the product? Is there an opportunity to upgrade services that would address this need in the future? Is there a chance to provide a meaningful cross/up-sell? Helping to determine the reasons behind exceptions gives us line of sight to possible longer-term solutions.  ',
         correct: 5,
       },
       {
+        label: '4',
         text: 'Determine what specific actions are required to fulfill Special Delivery request specifications (i.e., Special Approvals).',
         correct: 2,
       },
       {
+        label: '5',
         text: 'Once all updates are completed, ensure a response is sent to the Customer to keep them informed.',
         correct: 4,
       }
@@ -101,19 +107,23 @@ What steps should you follow?`,
     choices: [{
         text: 'Make sure our systems and master data are updated with the correct customer details.',
         correct: true,
+        selected: false
 
       },
       {
         text: 'Use advanced analytics to identify meaningful cross / up-sell opportunities and communicate potential to the Sales team.',
         correct: true,
+        selected: false
       },
       {
         text: `Inform other Customer Service team members by email that you've entered and confirmed the customer's request.`,
         correct: false,
+        selected: false
       },
       {
         text: 'After sending an automated order acknowledgement to the customer using their preferred communication channel (i.e. email), make a phone call to them too to make sure they received the order confirmation.',
         correct: false,
+        selected: false
       }
     ],
     feedback: {
@@ -226,18 +236,18 @@ What steps should you follow?`,
         correct: false,
       },
       {
-        text: `You advise your Supply Chain partner,request a sourcing change and ensure the proposed meets all the customer's requirements. Also, do keep in mind that we can only serve a limited number of customers because of the plant downtime. Therefore, you will have to ensure that customer segmentation (where applicable) or prioritization rules are followed and align with Commercial team, if needed. After we agree on the resolution internally, you confirm expected next steps with the customer`,
+        text: `You advise your Supply Chain partner, request a sourcing change and ensure the proposed meets all the customer's requirements. Also, do keep in mind that we can only serve a limited number of customers because of the plant downtime. Therefore, you will have to ensure that customer segmentation (where applicable) or prioritization rules are followed and align with Commercial team, if needed. After we agree on the resolution internally, you confirm expected next steps with the customer`,
         correct: true,
       }
     ],
     feedback: {
       correct: `<h2 class='correct'>Great job! You are correct.</h2>
-        <p>Following these steps will support our ability to provide a seamless experience for our customer, despite the obstacles. It’s vital to keep your internal partners informed as well. It is important we align internally before updating the customer.You advise your Supply Chain partner,request a sourcing change and ensure the proposed meets all the customer's requirements.</p>
+        <p>Following these steps will support our ability to provide a seamless experience for our customer, despite the obstacles. It’s vital to keep your internal partners informed as well. It is important we align internally before updating the customer.You advise your Supply Chain partner, request a sourcing change and ensure the proposed meets all the customer's requirements.</p>
         <p>Order Processing is a key opportunity to promote a better approach to handling this challenge by including other key partners that will be impacted by the change. It is important to work closely with our internal partners as we want this to be a seamless process for our customers so we will only alert them if we need to change the order after working through the process, not beforehand.</p>
         `,
       incorrect: `<h2 class='correct'>Good try, but this is incorrect. The correct flow would look like this:</h2>
         <p>You advise your Supply Chain partner and follow the arbitrage process to make sure the sourcing change proposed meets all the customer's requirements. Also, do keep in mind that we can only serve a limited number of customers because of the plant downtime. Inform/confirm on the outcome you intend to deliver to the customer is agreed upon internally. It is important we align internally before updating the customer. Therefore, you will have to ensure that customer segmentation (where applicable) or prioritization rules are followed and align with Commercial team, if needed.</p>
-       <p>It's important to keep the customer informed on any changes. Before cancelling the order, make sure we have explored all possible alternatives to deliver and meet the customer's expectations. It’s vital to keep your internal partners informed, as well. You advise your Supply Chain partner,request a sourcing change and ensure the proposed meets all the customer's requirements. </p>
+       <p>It's important to keep the customer informed on any changes. Before cancelling the order, make sure we have explored all possible alternatives to deliver and meet the customer's expectations. It’s vital to keep your internal partners informed, as well. You advise your Supply Chain partner, request a sourcing change and ensure the proposed meets all the customer's requirements. </p>
        <p>Order Processing is a key opportunity to promote a better approach to handling this challenge by including other key partners that will be impacted by the change. It is important to work closely with our internal partners as we want this to be a seamless process for our customers so we will only alert them if we need to change the order after working through the process, not beforehand.
        </p>`,
        incorrect1: `<h2 class='correct'>Good try, but this is incorrect. The correct flow would look like this:</h2>
@@ -246,7 +256,7 @@ What steps should you follow?`,
        <p>Order Processing is a key opportunity to promote a better approach to handling this challenge by including other key partners that will be impacted by the change. It is important to work closely with our internal partners as we want this to be a seamless process for our customers so we will only alert them if we need to change the order after working through the process, not beforehand.</p>
        `,
         incorrect2: `<h2 class='correct'>Good try, but this is incorrect. Option D is the correct answer.</h2>
-        <p>Informing the customer is correct, but it is also important to validate if that change is doable with the carrier / CTL. It’s vital to keep your internal partners (i.e. CTL) informed as well.You advise your Supply Chain partner,request a sourcing change and ensure the proposed meets all the customer's requirements.</p>
+        <p>Informing the customer is correct, but it is also important to validate if that change is doable with the carrier / CTL. It’s vital to keep your internal partners (i.e. CTL) informed as well.You advise your Supply Chain partner, request a sourcing change and ensure the proposed meets all the customer's requirements.</p>
        <p>Order Processing is a key opportunity to promote a better approach to handling this challenge by including other key partners that will be impacted by the change. It is important to work closely with our internal partners as we want this to be a seamless process for our customers so we will only alert them if we need to change the order after working through the process, not beforehand.</p>
   
        `

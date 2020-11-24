@@ -4,9 +4,10 @@
 
   <div class="flex top-panel">
     <div class="flex1">
+      {{quizNo / questions.length * 100 }}
       <div class="title">Order Management In Action</div>
       <div class="progress">
-        <div class="thumb"></div>
+        <div class="thumb" [style.width]=" (quizNo / questions.length * 100) + '%'"></div>
       </div>
     </div>
     <div class="score-panel">
@@ -84,7 +85,8 @@
         <div class="text-center instr">
           {{selectedQuiz.instr}}
         </div>
-        <div class="choices">
+        
+        <div class="choices" *ngIf="selectedQuiz.type == 'single_choice'">
           <div *ngFor="let item of selectedQuiz.choices; let i = index">
             <div class="flex choice" (click)="selectedQuiz.selected = i">
               <div class="single-choice">
@@ -96,6 +98,33 @@
             </div>
           </div>
         </div>
+        
+        <div class="sorting" *ngIf="selectedQuiz.type == 'sort_order'" cdkDropList (cdkDropListDropped)="drop($event)">
+          <div  *ngFor="let item of selectedQuiz.choices; let i = index" cdkDrag>
+            <div class="flex choice">
+              <div class="label">
+                {{item.label}}
+              </div>
+              <div class="text">
+                 {{item.text}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="choices" *ngIf="selectedQuiz.type == 'multiple_choice'">
+          <div *ngFor="let item of selectedQuiz.choices; let i = index">
+            <div class="flex choice" (click)="item.selected = !item.selected">
+              <div class="multi-choice">
+                <div class="dot" [ngClass]="{'active' : item.selected == true}"></div>
+              </div>
+              <div class="text">
+                {{item.text}}
+              </div>
+            </div>
+          </div>
+        </div>
+        
         <div class="text-center submit">
           <button class="primary-btn" (click)="quizSubmit(selectedQuiz)">Submit</button>
         </div>
