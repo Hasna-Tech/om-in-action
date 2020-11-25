@@ -1,4 +1,5 @@
 export let data = [
+  //1
   {
     type: 'single_choice',
     title: 'Customer Care Management',
@@ -6,6 +7,7 @@ export let data = [
     instr: 'Choose the correct option.',
     selected: -1,
     submitted: false,
+    score: 100,
     choices: [{
         text: 'Promptly ensure everything is set-up correctly in our systems so the Customer has a seamless experience.',
         correct: true,
@@ -43,6 +45,8 @@ export let data = [
         </ul>`
     }
   },
+
+  //2
   {
     type: 'sort_order',
     title: 'Order Intake',
@@ -53,6 +57,7 @@ What steps should you follow?`,
     instr: 'Rearrange the options in the correct order.',
     selected: -1,
     submitted: false,
+    score: 100,
     choices: [{
         label: '1',
         text: 'Once you address the immediate request, ensure there are no other areas in the system that should be updated (i.e., Master data).',
@@ -97,6 +102,8 @@ What steps should you follow?`,
           <p>It is important that we understand the details of the request, address them, and keep our customer informed.</p>`
     }
   },
+
+  //2 batch
   {
     type: 'multiple_choice',
     title: 'Bonus Question – Earn a Badge!',
@@ -104,6 +111,8 @@ What steps should you follow?`,
     instr: 'Choose the correct options.',
     selected: -1,
     submitted: false,
+    score: 0,
+    batch: true, 
     choices: [{
         text: 'Make sure our systems and master data are updated with the correct customer details.',
         correct: true,
@@ -144,6 +153,8 @@ What steps should you follow?`,
         </ul>`
     }
   },
+
+  //3
   {
     type: 'multiple_choice',
     title: 'Order Confirmation',
@@ -151,6 +162,7 @@ What steps should you follow?`,
     instr: 'Choose the correct options.',
     selected: -1,
     submitted: false,
+    score: 100,
     choices: [{
         text: 'We advise our customers if we are dealing with internal breakdowns (i.e., plant shutdowns).',
         correct: false,
@@ -215,6 +227,8 @@ What steps should you follow?`,
         <p>When we work to ensure everything is set up correctly, processed accurately and we connect with key internal partners, where appropriate, to verify important details like inventory availability and transportation schedules, we support seamless customer experiences. These actions reinforce our value proposition with our Customers to be their choice pick when we deliver what we say we will and meet their expectations, as mutually agreed upon in the SLA to ensure alignment.</p>`
     }
   },
+
+  //4
   {
     type: 'single_choice',
     title: 'Order Processing',
@@ -222,6 +236,7 @@ What steps should you follow?`,
     instr: 'Choose the correct option.',
     selected: -1,
     submitted: false,
+    score: 100,
     choices: [{
         text: 'Immediately after receiving notification about the plant shutdown, call the customer and inform them we will not be able to deliver their order and cancel the order in the system.',
         correct: false,
@@ -262,6 +277,8 @@ What steps should you follow?`,
        `
     }
   },
+
+  //5
   {
     type: 'single_choice',
     title: 'Order Fulfillment',
@@ -269,6 +286,7 @@ What steps should you follow?`,
     instr: 'Choose the correct option.',
     selected: -1,
     submitted: false,
+    score: 100,
     choices: [{
         text: 'Have CTL update the customer when they know when the product will be delivered to them.',
         correct: false,
@@ -300,6 +318,7 @@ What steps should you follow?`,
        }
   },
 
+  //6
   {
     type: 'multiple_choice',
     title: 'Order Support',
@@ -307,6 +326,7 @@ What steps should you follow?`,
     instr: 'Choose the correct options.',
     selected: -1,
     submitted: false,
+    score: 100,
     choices: [{
         text: 'Receive and answer order / general inquiries about our products',
         correct: true,
@@ -375,6 +395,66 @@ What steps should you follow?`,
         </ul>`
          }
   },
+  //6 batch
+
+  {
+    type: 'single_choice',
+    title: 'Bonus Question – Earn a Badge!',
+    question: 'In the Order Support process, how can you be more proactive?',
+    instr: 'Choose the correct option.',
+    selected: -1,
+    submitted: false,
+    score: 0,
+    batch: true,
+    choices: [{
+        text: `In case of customer complaint related to quality, route the case to Quality team and do nothing until it's resolved.`,
+        correct: false,
+      },
+      {
+        text: `When an order change comes through, ask questions to gain a deeper understanding of what’s prompting the change request. You may discover, through the details gathered, there may be a better long-term solution to offer to help mitigate the need for changes in the future.`,
+        correct: true,
+      },
+      {
+        text: 'The amount of financial disputes received from a customer has significantly increased in the past months. When a dispute notification is received from the customer forward it to CTC team.',
+        correct: false,
+      },
+      {
+        text: `Multiple customers reach out saying that they cannot download the documents related to their orders from Cargill's customers portal as they usually do. You manually send the documents to the customers by email and consider the case closed.`,
+        correct: false,
+      }
+    ],
+    feedback: {
+      choice_feedback: true,
+      correct: `<h2 class='correct'>Great job! You are correct.</h2>
+        <p>Following these steps gives us an opportunity to better understand our customers' needs and strive to enhance outcomes when we discover better solutions to service them.</p>
+        `,
+      choice_text: [`<h2 class='correct'>Good try, but this is incorrect. Options B is the correct answer.</h2>
+        <p>Timely follow up and keeping the customer aware of progress made is important. Customers should be aware about work in progress on their request, and proactive checking with responsible functions and stakeholders is  key to  that.</p>
+        <p>The correct flow is the following:</p>
+        <p>When an order change comes through, ask questions to gain a deeper understanding of what’s prompting the change request. You may discover, through the details gathered, there may be a better long-term solution to offer to help mitigate the need for changes in the future.</p>
+        <p>Following these steps gives us an opportunity to better understand our customers' needs and strive to enhance outcomes when we discover better solutions to service them.</p>`
+        ,
+        '',
+        `<h2 class='correct'>Good try, but this is incorrect. Options B is the correct answer.</h2>
+        <p>This is not all that we have to do. It's important we identify and address root cause issues, whether that be a Cargill issue or a specific Customer one. Thereby really looking to drive down the numbers through our reciprocal communication and the data available, as key trends could be identified via both CBS (CTC) and CSR teams, respectively.</p>
+
+        <p>The correct flow is the following:</p>
+        <p>When an order change comes through, ask questions to gain a deeper understanding of what’s prompting the change request. You may discover, through the details gathered, there may be a better long-term solution to offer to help mitigate the need for changes in the future.</p>
+        
+        <p>Following these steps gives us an opportunity to better understand our customers' needs and strive to enhance outcomes when we discover better solutions to service them.</p>        
+        `,
+        `
+        <h2 class='correct'>Good try, but this is incorrect. Options B is the correct answer.</h2>
+        <p>Sending the documents to the customers is correct, but you should also proactively reach out to higher level staff or technology specialist, making sure they are aware of the issue and that it's resolved as soon as possible.</p>
+
+        <p>The correct flow is the following:</p>
+        <p>When an order change comes through, ask questions to gain a deeper understanding of what’s prompting the change request. You may discover, through the details gathered, there may be a better long-term solution to offer to help mitigate the need for changes in the future.</p>
+        
+        <p>Following these steps gives us an opportunity to better understand our customers' needs and strive to enhance outcomes when we discover better solutions to service them.</p>
+        `
+    ]
+       }
+  },
 
   // 10 miles 
   {
@@ -384,6 +464,7 @@ What steps should you follow?`,
     instr: 'Choose the correct option.',
     selected: -1,
     submitted: false,
+    score: 200,
     choices: [{
         text: 'Archive the received results. Nothing further.',
         correct: false,
@@ -427,5 +508,43 @@ What steps should you follow?`,
         `
         ]
        }
-  }
+  },
+
+  {
+    type: 'single_choice',
+    title: 'Customer Focus',
+    question: `
+    <p>Every touch point with a customer is an opportunity to learn and better equip the business with information by:</p>
+<ul><li>Asking meaningful questions. </li>
+<li>Validating key customer details, where applicable </li>
+<li>Documenting notes in Salesforce to make the information available to others across Cargill. </li>
+</ul>
+<p>Is this statement True or False?</p>
+    `,
+    instr: 'Choose the correct option.',
+    selected: -1,
+    submitted: false,
+    score: 200,
+    choices: [{
+        text: 'True',
+        correct: true,
+
+      },
+      {
+        text: `False`,
+        correct: false,
+      }
+    ],
+    feedback: {
+      correct: `<h2 class='correct'>Great job! You are correct.</h2>
+        <p>Every opportunity taken to learn more about the customers' needs allows us to better serve them in the agreed upon manner and can provide potential additional opportunities for Cargill to fill more of their business needs as well. </p>
+        <p>Getting to know our customers’ needs better will empower us to be more effective, efficient, agile and provide value for both Cargill and the customers.</p>
+        `,
+      incorrect: `<h2 class='correct'>Good try, but this is incorrect. Options B is the correct answer.</h2>
+        <p>It is true that every opportunity taken to learn more about the customers' needs allows us to better serve them in the agreed upon manner and can provide potential additional opportunities for Cargill to fill more of their business needs as well. </p>
+        <p>Getting to know our customers’ needs better will empower us to be more effective, efficient, agile and provide value for both Cargill and the customers.</p>
+        
+</p>`
+       }
+  },
 ];

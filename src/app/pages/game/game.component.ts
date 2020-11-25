@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { TimelineMax, Linear } from 'gsap/all';
 import MotionPathPlugin from 'gsap/MotionPathPlugin';
 import { data } from './data';
-import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-game',
@@ -15,14 +15,21 @@ export class GameComponent implements AfterViewInit {
 
   tl;
   showPanel = true;
-   showQuizScreen = 'intro';
+  showQuizScreen = 'intro';
   // showQuizScreen = 'quiz';
   score = 0;
   speed = 1;
   step = 1;
+  totalQuestion = 6;
   questions = data;
   quizNo = 0;
   selectedQuiz = this.questions[this.quizNo];
+
+  batches = 2;
+  result = {
+    title: '',
+    bubble: ''
+  }
 
   constructor() {
     gsap.registerPlugin(MotionPathPlugin);
@@ -32,19 +39,8 @@ export class GameComponent implements AfterViewInit {
 
     this.tl = new TimelineMax();
 
-    /* this.tl.to('.building1', { scale: 1, duration: 0.this.speed });
-    this.tl.to('.tree1', { scale: 1, duration: 0.5 });
-
-    this.tl.fromTo('#truck1', { x: -161, y: 100 }, { x: 229, y: -140, duration: 5 });
-    this.tl.to('.selection1', { scale: 1, duration: 0.5 });
-    this.tl.to('#truck1', { opacity: 0, duration: 0.1 });
-
-    this.tl.to('#truck2', { opacity: 1, duration: 0.1 });
-    this.tl.fromTo('#truck2', { x: 0, y: 0 }, { x: 240, y: 140, duration: 5 });
-    */
-   
     this.onResize(null);
-    this.getQuiz(this.quizNo + 1);
+    //this.getQuiz(this.quizNo + 1);
   }
 
   @HostListener('window:resize', ['$event']) onResize(event) {
@@ -82,7 +78,7 @@ export class GameComponent implements AfterViewInit {
         this.tl.fromTo('#truck1', { x: -161, y: 100 }, {
           x: 229, y: -140, duration: 5, onComplete: () => {
             this.getQuiz(1);
-            // this.action(7);
+            //this.action(5);
           }
         });
         break;
@@ -107,11 +103,15 @@ export class GameComponent implements AfterViewInit {
             this.tl.set('#truck1', { opacity: 1 });
             this.tl.fromTo('#truck1', { x: 550, y: -15 }, {
               x: 723, y: -111, duration: this.speed, onComplete: () => {
-                this.tl.to("#earn_batch1",  {opacity:1, duration: 0.5, onComplete: () => {
-                  setTimeout(()=>{
-                    this.getQuiz(3);
-                  }, 1000)
-                }});
+                this.totalQuestion += 1;
+                this.tl.to("#earn_batch1", {
+                  opacity: 1, duration: 0.5, onComplete: () => {
+                    setTimeout(() => {
+                      this.getQuiz(3);
+                      
+                    }, 1000)
+                  }
+                });
                 // this.action(4);
               }
             });
@@ -145,32 +145,42 @@ export class GameComponent implements AfterViewInit {
             this.tl.set('#truck1', { opacity: 0 });
             this.tl.set('#truck3', { opacity: 1 });
             this.tl.fromTo('#truck3', { x: 1394, y: 640 }, {
-              x: 1125, y: 471, duration: this.speed, onComplete: () => {
-                //this.getQuiz(1);
-                //console.log('came here');
-                this.tl.set('#truck1', { opacity: 1 });
-                this.tl.set('#truck3', { opacity: 0 });
-                this.tl.fromTo('#truck1', { x: 1013, y: -365 }, {
-                  x: 1043, y: -380, duration: this.speed, onComplete: () => {
-                    this.getQuiz(5);
-                    //this.action(6);
-                  }
-                });
+              x: 1283, y: 571, duration: this.speed, onComplete: () => {
+                //this.action(6);
+                this.getQuiz(5);
               }
             });
           }
         });
         break;
 
+        case 6:
+          
+              this.tl.fromTo('#truck3', { x: 1283, y: 571 }, {
+                x: 1125, y: 471, duration: this.speed, onComplete: () => {
+                  //this.getQuiz(1);
+                  //console.log('came here');
+                  this.tl.set('#truck1', { opacity: 1 });
+                  this.tl.set('#truck3', { opacity: 0 });
+                  this.tl.fromTo('#truck1', { x: 1013, y: -365 }, {
+                    x: 1043, y: -380, duration: this.speed, onComplete: () => {
+                       this.getQuiz(6);
+                      //this.action(6);
+                    }
+                  });
+                }
+              });
+          break;
 
-      case 6:
+
+      case 7:
         this.tl.fromTo('#truck1', { x: 1043, y: -380 }, {
           x: 1209, y: -475, duration: this.speed, onComplete: () => {
             this.tl.set('#truck1', { opacity: 0 });
             this.tl.set('#truck2', { opacity: 1 });
             this.tl.fromTo('#truck2', { x: 1000, y: -300 }, {
               x: 1000, y: -300, duration: this.speed, onComplete: () => {
-                this.getQuiz(6);
+                this.getQuiz(7);
                 //this.action(7);
               }
             });
@@ -178,43 +188,65 @@ export class GameComponent implements AfterViewInit {
         });
         break;
 
-      case 7:
+      case 8:
         this.tl.to('#truck2', {
           x: 1184, y: -200, duration: this.speed, onComplete: () => {
-            this.tl.to("#earn_batch2",  {opacity:1, duration: 0.5, onComplete: () => {
-              setTimeout(()=>{
-                this.getQuiz(7);
-              }, 1000)
-            }});
+            this.totalQuestion += 1;
+            this.tl.to("#earn_batch2", {
+              opacity: 1, duration: 0.5, onComplete: () => {
+                setTimeout(() => {
+                  this.getQuiz(8);
+                }, 1000)
+              }
+            });
             // this.getQuiz(7)
             //this.action(8);
           }
         });
         break;
 
-      case 8:
-        this.tl.set("#truck1", {opacity: 0});
-        this.tl.set("#truck2", {opacity: 1});
+      case 9:
+        this.tl.set("#truck1", { opacity: 0 });
+        this.tl.set("#truck2", { opacity: 1 });
         this.tl.to('#truck2', {
           x: 1484, y: -38, duration: this.speed, onComplete: () => {
             // this.getQuiz(8);
             //this.action(8);
-            this.tl.set("#truck2", {opacity: 0});
-            this.tl.set("#earn_batch1", {opacity: 0});
-            this.tl.set("#earn_batch2", {opacity: 0});
-            this.tl.set("#truck2", {opacity: 0});
-            this.tl.to(".game_layout", {opacity: 0});
-            this.tl.to(".screen_10", {opacity: 1, onComplete: () => {
-              setTimeout(()=>{
-                this.showPanel = true;
-                this.showQuizScreen = 'miles';
-                this.tl.to("#miles", {opacity: 1, duration: 1});
-              }, 1000)
-            }});
+            this.tl.set("#truck2", { opacity: 0 });
+            this.tl.set("#earn_batch1", { opacity: 0 });
+            this.tl.set("#earn_batch2", { opacity: 0 });
+            this.tl.set("#truck2", { opacity: 0 });
+            this.tl.to(".game_layout", { opacity: 0 });
+            this.tl.to(".screen_10", {
+              opacity: 1, onComplete: () => {
+                setTimeout(() => {
+                  this.showPanel = true;
+                  this.showQuizScreen = 'miles';
+                  this.tl.to("#miles", { opacity: 1, duration: 1 });
+                }, 1000)
+              }
+            });
+          }
+        });
+        break;
+      case 10:
+        this.tl.to(".screen_10_1", {
+          opacity: 1, onComplete: () => {
+            setTimeout(() => {
+              this.showPanel = true;
+              this.getQuiz(9);
+            }, 1000)
           }
         });
         break;
 
+      case 11:
+        this.showPanel = true;
+        this.showQuizScreen = 'result';
+        this.result.title = "Congratulations! The product has been successfully delivered.";
+        this.result.bubble = "Cargill came through for me on this order. These are the results that show me you can deliver on your promises and build my confidence that I will get excellent service from Cargill. Thankyou";
+
+        break;
 
       default:
         break;
@@ -228,7 +260,7 @@ export class GameComponent implements AfterViewInit {
     this.showQuizScreen = 'quiz';
     this.selectedQuiz = this.questions[step - 1];
     this.selectedQuiz.choosen = false;
-    this.quizNo = step+1;
+    this.quizNo = step;
 
     // switch (step) {
     //   case 1:
@@ -243,7 +275,7 @@ export class GameComponent implements AfterViewInit {
     //   default:
     //     break;
     // }
-    
+
   }
 
   quizSubmit(quiz) {
@@ -252,47 +284,50 @@ export class GameComponent implements AfterViewInit {
       if (quiz.choices[quiz.selected].correct == true) {
         this.score += 100;
         quiz.correct = true;
-        quiz.feedbackText = quiz.feedback.correct;
+        //quiz.feedbackText = quiz.feedback.correct;
         console.log(this.score);
       } else {
         //this.score = 0;
+        if (quiz.feedback.choice_feedback) {
+          quiz.feedback.incorrect = quiz.feedback.choice_text[quiz.selected];
+        } else {
+          //quiz.feedbackText = quiz.feedback.incorrect;
+        }
         quiz.correct = false;
-        quiz.feedbackText = quiz.feedback.incorrect;
+
       }
-      
-      console.log(quiz);
+
+      //console.log(quiz);
     }
-    else if (quiz.type == 'sort_order')
-    {
+    else if (quiz.type == 'sort_order') {
       let wrong = false;
       for (let i = 0; i < quiz.choices.length; i++) {
         const choice = quiz.choices[i];
-        if(choice.correct != i+1){
+        if (choice.correct != i + 1) {
           wrong = true;
         }
       }
-      if(wrong == false){
+      if (wrong == false) {
         this.score += 100;
         quiz.correct = true;
         quiz.feedbackText = quiz.feedback.correct;
-      }else {
+      } else {
         quiz.correct = false;
         quiz.feedbackText = quiz.feedback.incorrect;
       }
-    } else if (quiz.type == 'multiple_choice')
-    {
+    } else if (quiz.type == 'multiple_choice') {
       let wrong = false;
       for (let i = 0; i < quiz.choices.length; i++) {
         const choice = quiz.choices[i];
-        if(choice.correct != choice.selected){
+        if (choice.correct != choice.selected) {
           wrong = true;
         }
       }
-      if(wrong == false){
+      if (wrong == false) {
         this.score += 100;
         quiz.correct = true;
         quiz.feedbackText = quiz.feedback.correct;
-      }else {
+      } else {
         quiz.correct = false;
         quiz.feedbackText = quiz.feedback.incorrect;
       }
@@ -304,5 +339,8 @@ export class GameComponent implements AfterViewInit {
     console.log(event.previousIndex, event.currentIndex);
     this.selectedQuiz.choosen = true;
     moveItemInArray(this.selectedQuiz.choices, event.previousIndex, event.currentIndex);
+  }
+  counter(i: number) {
+    return new Array(i);
   }
 }
