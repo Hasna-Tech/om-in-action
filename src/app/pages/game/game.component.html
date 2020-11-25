@@ -20,6 +20,11 @@
 
   <div class="screen_10 abs"><img src="assets/10_screen.png" alt="game"></div>
 
+
+  <div id="earn_batch1" class="abs"><img src="assets/earn_batch.png" alt="Earn a Batch"></div>
+
+  <div id="earn_batch2" class="abs"><img src="assets/earn_batch.png" alt="Earn a Batch"></div>
+
   <div id="truck1" class="Truck1 abs"><img src="assets/Truck1.png" alt="Truck1"></div>
   <div id="truck2" class="Truck2 abs"><img src="assets/Truck2.png" alt="Truck2"></div>
   <div id="truck3" class="Truck3 abs"><img src="assets/Truck3.png" alt="Truck2"></div>
@@ -66,9 +71,19 @@
         </ul>
         <p>Are you ready to get into the Game? <b>Click Start and let’s begin! </b></p>
         <div class="text-center">
-          <button class="primary-btn" (click)="action(1)">Start</button>
+          <button class="primary-btn" (click)="action(8)">Start</button>
         </div>
 
+    </div>
+
+    <div id="miles" *ngIf="showQuizScreen == 'miles'">
+      <h2>10 Miles to Go </h2>
+      <p>Good job! You have successfully achieved all the milestones in Order Management. However, we are not quite there yet. There is 10 miles to go for the delivery to reach the customer. 
+        Answer the next two questions and win the opportunity to earn 200 extra points and win the game.    
+        </p>
+        <div class="text-center">
+          <button class="primary-btn" (click)="getQuiz(8)">Continue</button>
+        </div>
     </div>
 
     <div *ngIf="showQuizScreen == 'quiz'">
@@ -88,7 +103,7 @@
         
         <div class="choices" *ngIf="selectedQuiz.type == 'single_choice'">
           <div *ngFor="let item of selectedQuiz.choices; let i = index">
-            <div class="flex choice" (click)="selectedQuiz.selected = i">
+            <div class="flex choice" (click)="selectedQuiz.selected = i; selectedQuiz.choosen = true">
               <div class="single-choice">
                 <div class="dot" [ngClass]="{'active' : selectedQuiz.selected == i}"></div>
               </div>
@@ -114,7 +129,7 @@
 
         <div class="choices" *ngIf="selectedQuiz.type == 'multiple_choice'">
           <div *ngFor="let item of selectedQuiz.choices; let i = index">
-            <div class="flex choice" (click)="item.selected = !item.selected">
+            <div class="flex choice" (click)="item.selected = !item.selected; selectedQuiz.choosen = true">
               <div class="multi-choice">
                 <div class="dot" [ngClass]="{'active' : item.selected == true}"></div>
               </div>
@@ -126,7 +141,7 @@
         </div>
         
         <div class="text-center submit">
-          <button class="primary-btn" (click)="quizSubmit(selectedQuiz)">Submit</button>
+          <button class="primary-btn" [ngClass]="{'disabled' : !selectedQuiz.choosen}" (click)="quizSubmit(selectedQuiz)">Submit</button>
         </div>
       </div>
       <div class="feedback" *ngIf="selectedQuiz.submitted == true">

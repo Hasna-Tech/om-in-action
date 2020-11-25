@@ -42,6 +42,7 @@ export class GameComponent implements AfterViewInit {
     this.tl.to('#truck2', { opacity: 1, duration: 0.1 });
     this.tl.fromTo('#truck2', { x: 0, y: 0 }, { x: 240, y: 140, duration: 5 });
     */
+   
     this.onResize(null);
     this.getQuiz(this.quizNo + 1);
   }
@@ -81,6 +82,7 @@ export class GameComponent implements AfterViewInit {
         this.tl.fromTo('#truck1', { x: -161, y: 100 }, {
           x: 229, y: -140, duration: 5, onComplete: () => {
             this.getQuiz(1);
+            // this.action(7);
           }
         });
         break;
@@ -90,7 +92,7 @@ export class GameComponent implements AfterViewInit {
         this.tl.set('#truck1', { opacity: 0 });
         this.tl.set('#truck2', { opacity: 1, duration: 0.1 });
         this.tl.fromTo('#truck2', { x: 0, y: 0 }, {
-          x: 160, y: 92, duration: this.speed * 1.5, delay: 2, onComplete: () => {
+          x: 160, y: 92, duration: this.speed * 3, delay: 2, onComplete: () => {
             this.getQuiz(2);
             //this.action(3);
           }
@@ -105,7 +107,11 @@ export class GameComponent implements AfterViewInit {
             this.tl.set('#truck1', { opacity: 1 });
             this.tl.fromTo('#truck1', { x: 550, y: -15 }, {
               x: 723, y: -111, duration: this.speed, onComplete: () => {
-                 this.getQuiz(3);
+                this.tl.to("#earn_batch1",  {opacity:1, duration: 0.5, onComplete: () => {
+                  setTimeout(()=>{
+                    this.getQuiz(3);
+                  }, 1000)
+                }});
                 // this.action(4);
               }
             });
@@ -175,20 +181,36 @@ export class GameComponent implements AfterViewInit {
       case 7:
         this.tl.to('#truck2', {
           x: 1184, y: -200, duration: this.speed, onComplete: () => {
-            this.getQuiz(7)
+            this.tl.to("#earn_batch2",  {opacity:1, duration: 0.5, onComplete: () => {
+              setTimeout(()=>{
+                this.getQuiz(7);
+              }, 1000)
+            }});
+            // this.getQuiz(7)
             //this.action(8);
           }
         });
         break;
 
       case 8:
+        this.tl.set("#truck1", {opacity: 0});
+        this.tl.set("#truck2", {opacity: 1});
         this.tl.to('#truck2', {
           x: 1484, y: -38, duration: this.speed, onComplete: () => {
             // this.getQuiz(8);
             //this.action(8);
             this.tl.set("#truck2", {opacity: 0});
+            this.tl.set("#earn_batch1", {opacity: 0});
+            this.tl.set("#earn_batch2", {opacity: 0});
+            this.tl.set("#truck2", {opacity: 0});
             this.tl.to(".game_layout", {opacity: 0});
-            this.tl.to(".screen_10", {opacity: 1});
+            this.tl.to(".screen_10", {opacity: 1, onComplete: () => {
+              setTimeout(()=>{
+                this.showPanel = true;
+                this.showQuizScreen = 'miles';
+                this.tl.to("#miles", {opacity: 1, duration: 1});
+              }, 1000)
+            }});
           }
         });
         break;
@@ -205,21 +227,23 @@ export class GameComponent implements AfterViewInit {
     this.showPanel = true;
     this.showQuizScreen = 'quiz';
     this.selectedQuiz = this.questions[step - 1];
+    this.selectedQuiz.choosen = false;
     this.quizNo = step+1;
 
-    switch (step) {
-      case 1:
-        this.showPanel = true;
-        this.showQuizScreen = 'quiz';
-        break;
-      case 2:
-        this.showPanel = true;
-        this.showQuizScreen = 'quiz';
-        this.selectedQuiz = this.questions[step - 1];
-        break;
-      default:
-        break;
-    }
+    // switch (step) {
+    //   case 1:
+    //     this.showPanel = true;
+    //     this.showQuizScreen = 'quiz';
+    //     break;
+    //   case 2:
+    //     this.showPanel = true;
+    //     this.showQuizScreen = 'quiz';
+    //     this.selectedQuiz = this.questions[step - 1];
+    //     break;
+    //   default:
+    //     break;
+    // }
+    
   }
 
   quizSubmit(quiz) {
@@ -278,6 +302,7 @@ export class GameComponent implements AfterViewInit {
 
   drop(event: CdkDragDrop<string[]>) {
     console.log(event.previousIndex, event.currentIndex);
+    this.selectedQuiz.choosen = true;
     moveItemInArray(this.selectedQuiz.choices, event.previousIndex, event.currentIndex);
   }
 }

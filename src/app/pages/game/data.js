@@ -375,4 +375,57 @@ What steps should you follow?`,
         </ul>`
          }
   },
+
+  // 10 miles 
+  {
+    type: 'single_choice',
+    title: '10 Miles to Customer',
+    question: 'Your team received initial results from the latest Voice of the Customer (VoC) survey from the VoC COE Team. What should you do next?',
+    instr: 'Choose the correct option.',
+    selected: -1,
+    submitted: false,
+    choices: [{
+        text: 'Archive the received results. Nothing further.',
+        correct: false,
+
+      },
+      {
+        text: `Forward the results to all our customers.`,
+        correct: false,
+      },
+      {
+        text: 'Interpret the summarized results and work with the VOC COE team to further understand the data behind it. Compare results to target and conduct root cause analysis in case of underperformance. Define the problem and collaborate with other functions (i.e. commercial, supply chain, finance) to identify improvements. When appropriate, inform selected key customers about improvement results / actions based on their feedback.',
+        correct: true,
+      },
+      {
+        text: `Ask the VOC COE team to work on and resolve the issues flagged by our customers.`,
+        correct: false,
+      }
+    ],
+    feedback: {
+      choice_feedback: true,
+      correct: `<h2 class='correct'>Great job! You are correct.</h2>
+        <p>Interpret the summarized results and work with the VOC COE team to further understand the data behind it. Compare results to target and conduct root cause analysis in case of underperformance. Define the problem and collaborate with other functions (i.e. commercial, supply chain, finance) identify improvements. When appropriate, inform selected key customers about improvement results / actions based on their feedback.</p>
+        `,
+      choice_text: [`<h2 class='correct'>Good try, but this is incorrect. Options B is the correct answer.</h2>
+        <p>The purpose of all metrics measurement (including customer feedback) is to review and analyze the results, conduct root cause analysis for underperformance and take corrective actions.</p>
+        <p>The correct answer is:</p>
+        <p>Interpret the summarized results and work with the VOC COE team to further understand the data behind it. Compare results to target and conduct root cause analysis in case of underperformance. Define the problem and collaborate with other functions (i.e. commercial, supply chain, finance) identify improvements. When appropriate, inform selected key customers about improvement results / actions based on their feedback.</p>`,
+
+        `<h2 class='correct'>Good try, but this is incorrect. Options B is the correct answer.</h2>
+        <p>We might want to reach out to some select customers after the survey is complete, but before that we need to conduct root cause analysis and identify improvement actions in our internal processes. Forwarding all results to all our customers might jeopardize our relationship with them, as the feedback shared is sensitive.</p>
+
+        <p>The correct answer is:</p>
+        <p>Interpret the summarized results and work with the VOC COE team to further understand the data behind it. Compare results to target and conduct root cause analysis in case of underperformance. Define the problem and collaborate with other functions (i.e. commercial, supply chain, finance) identify improvements. When appropriate, inform selected key customers about improvement results / actions based on their feedback.</p>
+        `,
+        '',
+        `<h2 class='correct'>Good try, but this is incorrect. Options B is the correct answer.</h2>
+        <p>The VOC COE Team partners with the businesses to understand survey requirements, collect customer feedback, and analyze the data. However, the results and actions from the survey are owned by the business.</p>
+
+        <p>The correct answer is:</p>
+        <p>Interpret the summarized results and work with the VOC COE team to further understand the data behind it. Compare results to target and conduct root cause analysis in case of underperformance. Define the problem and collaborate with other functions (i.e. commercial, supply chain, finance) identify improvements. When appropriate, inform selected key customers about improvement results / actions based on their feedback.</p>
+        `
+        ]
+       }
+  }
 ];

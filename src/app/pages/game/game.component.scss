@@ -139,6 +139,11 @@ drag-scroll {
 }
 
 .primary-btn {
+
+  &.disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
   background-color: #005F86;
   color: #fff;
   padding: 10px;
@@ -215,4 +220,17 @@ drag-scroll {
     height: 30px;
     font-size: 16px;
   }
+}
+
+#earn_batch1{
+  left: 845px;
+  top: 538px;
+  opacity: 0;
+}
+
+
+#earn_batch2 {
+  left: 1645px;
+  top: 300px;
+  opacity: 0;
 }
