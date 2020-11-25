@@ -32,11 +32,15 @@
   }
 }
 
-.game_layout {
+.game_layout, .screen_10 {
   left: 0;
   top: 0;
   z-index: -1;
 
+}
+
+.screen_10{
+  opacity: 0;
 }
 
 .game {

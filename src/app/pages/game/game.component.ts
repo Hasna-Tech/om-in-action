@@ -186,6 +186,9 @@ export class GameComponent implements AfterViewInit {
           x: 1484, y: -38, duration: this.speed, onComplete: () => {
             // this.getQuiz(8);
             //this.action(8);
+            this.tl.set("#truck2", {opacity: 0});
+            this.tl.to(".game_layout", {opacity: 0});
+            this.tl.to(".screen_10", {opacity: 1});
           }
         });
         break;
