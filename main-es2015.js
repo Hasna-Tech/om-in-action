@@ -842,17 +842,16 @@ What steps should you follow?`,
       correct: `<h2 class='correct'>Great job! You are correct and earned a bonus badge!</h2>
         <p>These are the type of Order Support actions we provide our expertise to contribute towards seamless Order Management experiences for our customers. </p>
         `,
-      incorrect: `<h2 class='correct'>Good try, but this is incorrect. Options B, C, D, G, H, I, J are correct answers.</h2>
+      incorrect: `<h2 class='correct'>Good try, but this is incorrect. Options A, B, C, E, G, H, I are correct answers.</h2>
         <p>The Order Support actions we provide our expertise towards include:</p>
         <ul>
-          <li>B. Receive and answer order / general inquiries about our products</li>
-          <li>C. Process orders rejected or returned by customer</li>
-          <li>D. Process order exceptions and issue escalations</li>
-          <li>G. Manage Non-Standard Customer documentation requests –(e.g. issue/reissue B/L (bill of lading),
-     COA (certificate of analysis), invoice)</li>
-          <li>H. Receive invoice disputes</li>
-          <li>I. Receive and process customer complaints</li>
-          <li>J. New Customer – Helping to get them started</li>
+          <li>A. Receive and answer order / general inquiries about our products</li>
+          <li>B. Process orders rejected or returned by customer</li>
+          <li>C. Process order exceptions and issue escalations</li>
+          <li>E. Manage Non-Standard Customer documentation requests –(e.g. issue/reissue B/L (Bill of Lading), COA (Certificate of Analysis), invoice)</li>
+          <li>G. Receive invoice disputes</li>
+          <li>H. Receive and process customer complaints</li>
+          <li>I. New Customer – Helping to get them started</li>
         </ul>`
          }
   },
