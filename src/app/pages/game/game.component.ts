@@ -35,7 +35,7 @@ export class GameComponent implements AfterViewInit {
   alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'];
 
   constructor(private cdRef: ChangeDetectorRef) {
-    gsap.registerPlugin(MotionPathPlugin);
+    //gsap.registerPlugin(MotionPathPlugin);
   }
 
   ngAfterViewInit(): void {
