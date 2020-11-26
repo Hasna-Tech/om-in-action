@@ -2,7 +2,7 @@
   color: #FFF;
   padding: 30px;
   position: relative;
-  z-index: 1;
+  z-index: 3;
 
   .title {
     text-align: center;
@@ -28,18 +28,22 @@
       height: 3px;
       background-color: #279989;
       border-radius: 5px;
+      transition: width 0.5s ease;
     }
   }
 }
 
-.game_layout, .screen_10 , .screen_10_1 {
+.game_layout,
+.screen_10,
+.screen_10_1 {
   left: 0;
   top: 0;
   z-index: -1;
 
 }
 
-.screen_10, .screen_10_1 {
+.screen_10,
+.screen_10_1 {
   opacity: 0;
 }
 
@@ -114,15 +118,17 @@ drag-scroll {
     overflow: hidden !important;
   }
 }
+
 .quiz {
   width: 100%;
-  height: calc(100vh - 90px);
+  //height: calc(100vh - 90px);
+  height: 100vh ;
   position: absolute;
-  top: 90px;
+  top: 0px;
   left: 0;
   z-index: 2;
   backdrop-filter: blur(5px);
-
+  animation: zoomIn 0.5s ease;
   .panel {
     margin: 20px;
     padding: 30px;
@@ -137,13 +143,16 @@ drag-scroll {
 .text-center {
   text-align: center;
 }
-
+.primary-text{
+  color: #005F86;
+}
 .primary-btn {
 
-  &.disabled{
+  &.disabled {
     opacity: 0.5;
     cursor: not-allowed;
   }
+
   background-color: #005F86;
   color: #fff;
   padding: 10px;
@@ -176,9 +185,10 @@ drag-scroll {
     cursor: pointer;
   }
 
-  
 
-  .single-choice, .multi-choice{
+
+  .single-choice,
+  .multi-choice {
     //width: 15px;
     //height: 15px;
     background-color: #FFF;
@@ -202,15 +212,18 @@ drag-scroll {
       margin: 5px;
     }
   }
-  .multi-choice{
+
+  .multi-choice {
     border-radius: 0;
-    .dot{
+
+    .dot {
       border-radius: 0;
     }
   }
 }
-.sorting{
-  .label{
+
+.sorting {
+  .label {
     background-color: #005F86;
     color: #fff;
     border-radius: 50%;
@@ -222,7 +235,7 @@ drag-scroll {
   }
 }
 
-#earn_batch1{
+#earn_batch1 {
   left: 845px;
   top: 538px;
   opacity: 0;
@@ -245,21 +258,47 @@ drag-scroll {
   box-shadow: 0px 0px 24px #0000003D;
 }
 
-.bubble{
+.bubble {
   background-image: url('../../../assets/bubble.png');
   background-repeat: no-repeat;
   position: relative;
-  .text{
+
+  .text {
     position: absolute;
-    left: 100px;
-    top: 20px;
+    left: 136px;
+    top: 13px;
     margin: 10px;
   }
 }
 
-.opacity0{
+.opacity0 {
   opacity: 0;
 }
-.batch{
+
+.batch {
   margin: 10px;
+}
+
+
+#batch {
+  opacity: 0;
+}
+
+#questNoAdd{
+  color: #fff;
+  font-size: 18px;
+  //font-weight: bold;
+}
+
+
+
+@keyframes zoomIn {
+  0%{
+    transform: scale(0);
+    opacity: 0;
+  }
+  100%{
+    transform: scale(1);
+    opacity: 1;
+  }
 }

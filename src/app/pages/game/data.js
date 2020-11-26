@@ -59,28 +59,28 @@ What steps should you follow?`,
     submitted: false,
     score: 100,
     choices: [{
-        label: '1',
+        label: 'A',
         text: 'Once you address the immediate request, ensure there are no other areas in the system that should be updated (i.e., Master data).',
         correct: 3,
 
       },
       {
-        label: '2',
+        label: 'B',
         text: 'Check message details and validate that what is documented is correct.',
         correct: 1,
       },
       {
-        label: '3',
+        label: 'C',
         text: 'Once the request is done, seek to understand why the Special Delivery request was needed. Was there an issue with the product? Is there an opportunity to upgrade services that would address this need in the future? Is there a chance to provide a meaningful cross/up-sell? Helping to determine the reasons behind exceptions gives us line of sight to possible longer-term solutions.  ',
         correct: 5,
       },
       {
-        label: '4',
+        label: 'D',
         text: 'Determine what specific actions are required to fulfill Special Delivery request specifications (i.e., Special Approvals).',
         correct: 2,
       },
       {
-        label: '5',
+        label: 'E',
         text: 'Once all updates are completed, ensure a response is sent to the Customer to keep them informed.',
         correct: 4,
       }
@@ -99,7 +99,7 @@ What steps should you follow?`,
           that would address this need in the future? Is there a chance to provide a meaningful cross/up-sell? Helping to determine the reasons behind exceptions gives us 
           line of sight to possible longer-term solutions.</li>
         </ul>
-          <p>It is important that we understand the details of the request, address them, and keep our customer informed.</p>`
+          <p>It is important that <span class='primary-text'>we understand the details of the request, address them, and keep our customer informed.</p>`
     }
   },
 
@@ -190,7 +190,7 @@ What steps should you follow?`,
       },
       {
         text: 'We ensure accuracy on everything, from the start, in the system – credit check, contract, order creation. This supports seamless order process allowing for automation of tasks.',
-        correct: false,
+        correct: true,
       },
       {
         text: 'We verify to ensure quality testing timelines are aligned to shipment schedule, where applicable.',
@@ -381,22 +381,21 @@ What steps should you follow?`,
       correct: `<h2 class='correct'>Great job! You are correct and earned a bonus badge!</h2>
         <p>These are the type of Order Support actions we provide our expertise to contribute towards seamless Order Management experiences for our customers. </p>
         `,
-      incorrect: `<h2 class='correct'>Good try, but this is incorrect. Options B, C, D, G, H, I, J are correct answers.</h2>
+      incorrect: `<h2 class='correct'>Good try, but this is incorrect. Options A, B, C, E, G, H, I are correct answers.</h2>
         <p>The Order Support actions we provide our expertise towards include:</p>
         <ul>
-          <li>B. Receive and answer order / general inquiries about our products</li>
-          <li>C. Process orders rejected or returned by customer</li>
-          <li>D. Process order exceptions and issue escalations</li>
-          <li>G. Manage Non-Standard Customer documentation requests –(e.g. issue/reissue B/L (bill of lading),
-     COA (certificate of analysis), invoice)</li>
-          <li>H. Receive invoice disputes</li>
-          <li>I. Receive and process customer complaints</li>
-          <li>J. New Customer – Helping to get them started</li>
+          <li>A. Receive and answer order / general inquiries about our products</li>
+          <li>B. Process orders rejected or returned by customer</li>
+          <li>C. Process order exceptions and issue escalations</li>
+          <li>E. Manage Non-Standard Customer documentation requests –(e.g. issue/reissue B/L (Bill of Lading), COA (Certificate of Analysis), invoice)</li>
+          <li>G. Receive invoice disputes</li>
+          <li>H. Receive and process customer complaints</li>
+          <li>I. New Customer – Helping to get them started</li>
         </ul>`
          }
   },
+  
   //6 batch
-
   {
     type: 'single_choice',
     title: 'Bonus Question – Earn a Badge!',
@@ -515,11 +514,11 @@ What steps should you follow?`,
     title: 'Customer Focus',
     question: `
     <p>Every touch point with a customer is an opportunity to learn and better equip the business with information by:</p>
-<ul><li>Asking meaningful questions. </li>
-<li>Validating key customer details, where applicable </li>
-<li>Documenting notes in Salesforce to make the information available to others across Cargill. </li>
-</ul>
-<p>Is this statement True or False?</p>
+    <ul><li>Asking meaningful questions. </li>
+    <li>Validating key customer details, where applicable </li>
+    <li>Documenting notes in Salesforce to make the information available to others across Cargill. </li>
+    </ul>
+    <p>Is this statement True or False?</p>
     `,
     instr: 'Choose the correct option.',
     selected: -1,

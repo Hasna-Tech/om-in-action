@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "upload": "ng build --prod --base-href ./",
-    "predeploy": "ng build --prod --base-href https://hasna-tech.github.io/om-in-action/",
+    "predeploy": "ng build --base-href https://hasna-tech.github.io/om-in-action/",
     "deploy": "gh-pages -d dist/om-in-action"
   },
   "private": true,
