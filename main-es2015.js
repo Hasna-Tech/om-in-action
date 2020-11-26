@@ -651,7 +651,7 @@ What steps should you follow?`,
       },
       {
         text: 'We ensure accuracy on everything, from the start, in the system – credit check, contract, order creation. This supports seamless order process allowing for automation of tasks.',
-        correct: false,
+        correct: true,
       },
       {
         text: 'We verify to ensure quality testing timelines are aligned to shipment schedule, where applicable.',
