@@ -110,7 +110,7 @@
         <div class="text" [innerHTML]="selectedQuiz.question">
 
         </div>
-        <div class="text-center instr">
+        <div class="instr">
           {{selectedQuiz.instr}}
         </div>
 
@@ -167,7 +167,7 @@
       </div>
     </div>
 
-    <div id="result" *ngIf="showQuizScreen == 'result'">
+    <div id="result" [hidden]="showQuizScreen != 'result'">
       <div class="result_title">
         <h2>Order Management In Action</h2>
       </div>

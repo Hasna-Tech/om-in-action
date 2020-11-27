@@ -31,7 +31,7 @@ export let data = [
         <p>When we promptly ensure everything is set-up correctly in our systems, we enable our customers to consistently experience a seamless Order Management process. Here are a few actions to keep in mind:</p>
         <ul>
           <li>After completing requests, proactively check other key areas, like the Master data fields, to ensure updates are made to applicable key systems so seamless order process occurs that allows for automation of tasks. When this occurs successfully, CSRs can spend more time engaging with the customers.</li>
-          <li>Validate the accuracy of key details like Ship To, Special Requests, confirming the products requested go to the right place and that their Incoterms are set up correctly. </li>
+          <li>Validate the accuracy of key details like <span class='primary-text'>Ship To, Special Requests</span>, confirming the products requested go to the right place and that their Incoterms are set up correctly. </li>
           <li>Occasionally, for some manual requests you may review an invoice to validate details. </li>
           <li>When a new customer is being setup, collaborate with the Commercial team and ensure that Service Level Agreements (SLA) are embedded in all systems in alignment with customer segmentation (where applicable).</li>
         </ul>`,
@@ -39,7 +39,7 @@ export let data = [
         <p>When we promptly ensure everything is set-up correctly in our systems, we enable our customers to consistently experience a seamless Order Management process. Here are a few actions to keep in mind:</p>
         <ul>
           <li>After completing requests, proactively check other key areas, like the Master data fields, to ensure updates are made to applicable key systems so seamless order process occurs that allows for automation of tasks. When this occurs successfully, CSRs can spend more time engaging with the customers.</li>
-          <li>Validate the accuracy of key details like Ship To, Special Requests, confirming the products requested go to the right place and that their Incoterms are set up correctly. </li>
+          <li>Validate the accuracy of key details like <span class='primary-text'>Ship To, Special Requests</span>, confirming the products requested go to the right place and that their Incoterms are set up correctly. </li>
           <li>Occasionally, for some manual requests you may review an invoice to validate details. </li>
           <li>When a new customer is being setup, collaborate with the Commercial team and ensure that Service Level Agreements (SLA) are embedded in all systems in alignment with customer segmentation (where applicable).</li>
         </ul>`
@@ -87,7 +87,7 @@ What steps should you follow?`,
     ],
     feedback: {
       correct: `<h2 class='correct'>Great job! You are correct.</h2>
-        <p>It is important that we understand the details of the request, address them and keep our customer informed.</p>`,
+        <p>It is important that <span class='primary-text'>we understand the details of the request, address them and keep our customer informed</span>.</p>`,
       incorrect: `<h2 class='correct'>Good try, but this is incorrect. This is the correct order.</h2>
       
         <ul>
@@ -99,7 +99,7 @@ What steps should you follow?`,
           that would address this need in the future? Is there a chance to provide a meaningful cross/up-sell? Helping to determine the reasons behind exceptions gives us 
           line of sight to possible longer-term solutions.</li>
         </ul>
-          <p>It is important that <span class='primary-text'>we understand the details of the request, address them, and keep our customer informed.</p>`
+          <p>It is important that <span class='primary-text'>we understand the details of the request, address them, and keep our customer informed</span>.</p>`
     }
   },
 
@@ -251,7 +251,7 @@ What steps should you follow?`,
         correct: false,
       },
       {
-        text: `You advise your Supply Chain partner, request a sourcing change and ensure the proposed meets all the customer's requirements. Also, do keep in mind that we can only serve a limited number of customers because of the plant downtime. Therefore, you will have to ensure that customer segmentation (where applicable) or prioritization rules are followed and align with Commercial team, if needed. After we agree on the resolution internally, you confirm expected next steps with the customer`,
+        text: `You advise your Supply Chain partner, request a sourcing change and ensure the proposed meets all the customer's requirements. Also, do keep in mind that we can only serve a limited number of customers because of the plant downtime. Therefore, you will have to ensure that customer segmentation (where applicable) or prioritization rules are followed and align with Commercial team, if needed. After we agree on the resolution internally, you confirm expected next steps with the customer.`,
         correct: true,
       }
     ],
@@ -487,19 +487,19 @@ What steps should you follow?`,
       correct: `<h2 class='correct'>Great job! You are correct.</h2>
         <p>Interpret the summarized results and work with the VOC COE team to further understand the data behind it. Compare results to target and conduct root cause analysis in case of underperformance. Define the problem and collaborate with other functions (i.e. commercial, supply chain, finance) identify improvements. When appropriate, inform selected key customers about improvement results / actions based on their feedback.</p>
         `,
-      choice_text: [`<h2 class='correct'>Good try, but this is incorrect. Options B is the correct answer.</h2>
+      choice_text: [`<h2 class='correct'>Good try, but this is incorrect. Option B is the correct answer.</h2>
         <p>The purpose of all metrics measurement (including customer feedback) is to review and analyze the results, conduct root cause analysis for underperformance and take corrective actions.</p>
         <p>The correct answer is:</p>
         <p>Interpret the summarized results and work with the VOC COE team to further understand the data behind it. Compare results to target and conduct root cause analysis in case of underperformance. Define the problem and collaborate with other functions (i.e. commercial, supply chain, finance) identify improvements. When appropriate, inform selected key customers about improvement results / actions based on their feedback.</p>`,
 
-        `<h2 class='correct'>Good try, but this is incorrect. Options B is the correct answer.</h2>
+        `<h2 class='correct'>Good try, but this is incorrect. Option B is the correct answer.</h2>
         <p>We might want to reach out to some select customers after the survey is complete, but before that we need to conduct root cause analysis and identify improvement actions in our internal processes. Forwarding all results to all our customers might jeopardize our relationship with them, as the feedback shared is sensitive.</p>
 
         <p>The correct answer is:</p>
         <p>Interpret the summarized results and work with the VOC COE team to further understand the data behind it. Compare results to target and conduct root cause analysis in case of underperformance. Define the problem and collaborate with other functions (i.e. commercial, supply chain, finance) identify improvements. When appropriate, inform selected key customers about improvement results / actions based on their feedback.</p>
         `,
         '',
-        `<h2 class='correct'>Good try, but this is incorrect. Options B is the correct answer.</h2>
+        `<h2 class='correct'>Good try, but this is incorrect. Option B is the correct answer.</h2>
         <p>The VOC COE Team partners with the businesses to understand survey requirements, collect customer feedback, and analyze the data. However, the results and actions from the survey are owned by the business.</p>
 
         <p>The correct answer is:</p>
