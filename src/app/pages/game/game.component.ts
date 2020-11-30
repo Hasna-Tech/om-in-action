@@ -279,6 +279,11 @@ export class GameComponent implements AfterViewInit {
     this.selectedQuiz.choosen = false;
     this.selectedQuiz.submitted = false;
     this.quizNo = step;
+    if(this.selectedQuiz.type == 'multiple_choice'){
+      this.selectedQuiz.choices.map(s => {
+        s.selected = false
+      });
+    }
   }
 
   quizSubmit(quiz) {

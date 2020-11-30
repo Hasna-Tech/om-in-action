@@ -31,7 +31,7 @@ export let data = [
         <p>When we promptly ensure everything is set-up correctly in our systems, we enable our customers to consistently experience a seamless Order Management process. Here are a few actions to keep in mind:</p>
         <ul>
           <li>After completing requests, proactively check other key areas, like the Master data fields, to ensure updates are made to applicable key systems so seamless order process occurs that allows for automation of tasks. When this occurs successfully, CSRs can spend more time engaging with the customers.</li>
-          <li>Validate the accuracy of key details like <span class='primary-text'>Ship To, Special Requests</span>, confirming the products requested go to the right place and that their Incoterms are set up correctly. </li>
+          <li>Validate the accuracy of key details like Ship To, Special Requests, confirming the products requested go to the right place and that their Incoterms are set up correctly. </li>
           <li>Occasionally, for some manual requests you may review an invoice to validate details. </li>
           <li>When a new customer is being setup, collaborate with the Commercial team and ensure that Service Level Agreements (SLA) are embedded in all systems in alignment with customer segmentation (where applicable).</li>
         </ul>`,
@@ -39,7 +39,7 @@ export let data = [
         <p>When we promptly ensure everything is set-up correctly in our systems, we enable our customers to consistently experience a seamless Order Management process. Here are a few actions to keep in mind:</p>
         <ul>
           <li>After completing requests, proactively check other key areas, like the Master data fields, to ensure updates are made to applicable key systems so seamless order process occurs that allows for automation of tasks. When this occurs successfully, CSRs can spend more time engaging with the customers.</li>
-          <li>Validate the accuracy of key details like <span class='primary-text'>Ship To, Special Requests</span>, confirming the products requested go to the right place and that their Incoterms are set up correctly. </li>
+          <li>Validate the accuracy of key details like Ship To, Special Requests, confirming the products requested go to the right place and that their Incoterms are set up correctly. </li>
           <li>Occasionally, for some manual requests you may review an invoice to validate details. </li>
           <li>When a new customer is being setup, collaborate with the Commercial team and ensure that Service Level Agreements (SLA) are embedded in all systems in alignment with customer segmentation (where applicable).</li>
         </ul>`
@@ -87,7 +87,7 @@ What steps should you follow?`,
     ],
     feedback: {
       correct: `<h2 class='correct'>Great job! You are correct.</h2>
-        <p>It is important that <span class='primary-text'>we understand the details of the request, address them and keep our customer informed</span>.</p>`,
+        <p>It is important that we understand the details of the request, address them and keep our customer informed.</p>`,
       incorrect: `<h2 class='correct'>Good try, but this is incorrect. This is the correct order.</h2>
       
         <ul>
@@ -99,7 +99,7 @@ What steps should you follow?`,
           that would address this need in the future? Is there a chance to provide a meaningful cross/up-sell? Helping to determine the reasons behind exceptions gives us 
           line of sight to possible longer-term solutions.</li>
         </ul>
-          <p>It is important that <span class='primary-text'>we understand the details of the request, address them, and keep our customer informed</span>.</p>`
+          <p>It is important that we understand the details of the request, address them, and keep our customer informed.</p>`
     }
   },
 
@@ -120,7 +120,7 @@ What steps should you follow?`,
 
       },
       {
-        text: 'Use advanced analytics to identify meaningful cross / up-sell opportunities and communicate potential to the Sales team.',
+        text: 'Use advanced analytics and partner with Sales team to identify meaningful cross/up sell opportunities.',
         correct: true,
         selected: false
       },
@@ -140,12 +140,12 @@ What steps should you follow?`,
         <p>We make sure the data in our systems is correct. </p>
         <p>When we actively seek to deeply understand our customers’ needs and what drives their requests, we may be able to proactively offer solutions that create an enhanced outcome for both Cargill and the customer. For example, using advanced analytics creates opportunities for Vendor Managed Inventory (VMI), allowing us to let our customer know when they should be placing their order, or leveraging the current products or promotions to create up selling or cross selling opportunities.  
         </p>
-        <p>All of this is done while working with the customer on the solutions that make sense for their business.</p>`,
+        <p>All of this is done while partnering with commercial team and working with the customer on the solutions that make sense for their business.</p>`,
       incorrect: `<h2 class='correct'>Good try, but this is incorrect. Options A and B are correct answers.</h2>
        
         <ul>
           <li>We make sure the data in our systems is correct. </li>
-          <li>When we actively seek to deeply understand our customers’ needs and what drives their requests, we may be able to proactively offer solutions that create an enhanced outcome. For example, using advanced analytics creates opportunities for Vendor Managed Inventory (VMI), allowing us to let our customer know when they should be placing their order, or leveraging the current products or promotions to create up-selling or cross-selling opportunities.  All of this is done while working with the customer on the solutions that make sense for their business. </li>
+          <li>When we actively seek to deeply understand our customers’ needs and what drives their requests, we may be able to proactively offer solutions that create an enhanced outcome. For example, using advanced analytics creates opportunities for Vendor Managed Inventory (VMI), allowing us to let our customer know when they should be placing their order, or leveraging the current products or promotions to create up-selling or cross-selling opportunities.  All of this is done while partnering with commercial team and working with the customer on the solutions that make sense for their business.</li>
           <li>We should work in an efficient and effective manner. Informing Customer Service team members about the customer's specific requirements is important, but the best way to do that is using the system functionality and ensuring that master data is updated in all applicable systems.
 </li>
           <li>Confirming back to the customer is important part of the process, but confirming through the customers' preferred channel is enough, unless there are exceptions or issues that require customer's immediate attention.
@@ -369,7 +369,7 @@ What steps should you follow?`,
         correct: false,
       },
       {
-        text: 'Identify up sell opportunity and communicate to commercial team',
+        text: 'Identify upCollaborate and partner with Sales team to identify up sell opportunity.',
         correct: false,
       },
       {
