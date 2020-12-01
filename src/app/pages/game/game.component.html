@@ -174,12 +174,12 @@
       <h2 class="text-center">{{result.title}}</h2>
 
       <div class="flex">
-        <div class="bubble">
+        <div class="bubble mr-5">
           <img src="assets/bubble.png" class="opacity0" alt="">
           <div class="text">{{result.bubble}}</div>
 
         </div>
-        <div class="flex fcenter flex1">
+        <div class="flex flex1">
           <div class="text-center">
             <h2>Your Score = <span class="primary-color">{{score}} / 1000 </span> </h2>
             <h3>You earned badges = <span class="primary-color">{{batches}} </span> </h3>
@@ -187,6 +187,12 @@
               <div class="batch" *ngFor="let b of counter(batches)">
                 <img src="assets/batches.png" alt="Batches">
               </div>
+            </div>
+            <div class="text-center">
+              <ng-container >
+                <button *ngIf="this.score < 800" class="primary-btn mr-5" (click)="reload()">Replay</button>
+              </ng-container>
+              <button class="primary-btn" (click)="close()">Exit Window</button>
             </div>
           </div>
         </div>

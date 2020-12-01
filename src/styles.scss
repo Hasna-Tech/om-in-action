@@ -9,9 +9,11 @@ body {
   scroll-behavior: smooth;
   //line-height: 24px;
   overflow: hidden;
+  background: linear-gradient(0deg, #005f86 0%, #076488 25%, #0f688d 70%, #347f9f 100%);
+  height: 100vh;
 }
 
-h2{
+h2 {
   font-size: 42px;
   line-height: normal;
 }

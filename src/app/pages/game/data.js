@@ -158,7 +158,7 @@ What steps should you follow?`,
   {
     type: 'multiple_choice',
     title: 'Order Confirmation',
-    question: 'Let’s envision a well-managed customer order management experience. When the customer is ready, their order goes through the intake process with no issues because everything was configured correctly when the account was first set up. Just the way we like it!  Now it’s time for Order Confirmation. What steps do we take to contribute to this seamless experience for our customer?',
+    question: 'Let’s envision a well-managed customer order management experience. When the customer places their order, their order goes through the intake process with no issues because everything was configured correctly when the account was first set up. Just the way we like it!  Now it’s time for Order Confirmation. What steps do we take to contribute to this seamless experience for our customer?',
     instr: 'Choose the correct options.',
     selected: -1,
     submitted: false,
@@ -247,11 +247,11 @@ What steps should you follow?`,
         correct: false,
       },
       {
-        text: 'Agree with the planner that sourcing location can be switched to a warehouse, which is far off the plant. Change the loading location in the system and only inform the customer about it.',
+        text: 'Agree with the planner that sourcing location can be switched to a warehouse, which is far off the plant. Change the loading location in the system and only inform the customer about it. We assume that truck will still arrive on time.',
         correct: false,
       },
       {
-        text: `You advise your Supply Chain partner, request a sourcing change and ensure the proposed meets all the customer's requirements. Also, do keep in mind that we can only serve a limited number of customers because of the plant downtime. Therefore, you will have to ensure that customer segmentation (where applicable) or prioritization rules are followed and align with Commercial team, if needed. After we agree on the resolution internally, you confirm expected next steps with the customer.`,
+        text: `You advise your Supply Chain partner, request a sourcing change and ensure the proposed meets all the customer's requirements. Also, do keep in mind that we can only serve a limited number of customers because of the plant downtime. Therefore, you will have to ensure that customer segmentation (where applicable) or prioritization rules are followed and align with Commercial team, if needed. After we agree on the resolution internally, you confirm expected next steps with the customer and ensure that transportation can be scheduled and secured to meet customers’ expectations.`,
         correct: true,
       }
     ],
@@ -369,7 +369,7 @@ What steps should you follow?`,
         correct: false,
       },
       {
-        text: 'Identify upCollaborate and partner with Sales team to identify up sell opportunity.',
+        text: 'Partner with Sales team to identify up and cross sell opportunities',
         correct: false,
       },
       {

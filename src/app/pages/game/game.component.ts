@@ -83,7 +83,6 @@ export class GameComponent implements AfterViewInit {
         this.tl.fromTo('#truck1', { x: -161, y: 100 }, {
           x: 229, y: -140, duration: this.speed, onComplete: () => {
             this.getQuiz(1);
-            //this.action(5);
           }
         });
         break;
@@ -108,7 +107,7 @@ export class GameComponent implements AfterViewInit {
             this.tl.set('#truck2', { opacity: 0 });
             this.tl.set('#truck1', { opacity: 1 });
             this.tl.fromTo('#truck1', { x: 550, y: -15 }, {
-              x: 723, y: -111, duration: this.speed / 2 , onComplete: () => {
+              x: 723, y: -111, duration: this.speed / 2, onComplete: () => {
                 this.animateAddQuestion();
                 this.tl.to('#earn_batch1', {
                   opacity: 1, duration: 0.5, onComplete: () => {
@@ -163,13 +162,13 @@ export class GameComponent implements AfterViewInit {
       case 6:
 
         this.tl.fromTo('#truck3', { x: 1283, y: 571 }, {
-          x: 1125, y: 471, duration: this.speed /2, onComplete: () => {
+          x: 1125, y: 471, duration: this.speed / 2, onComplete: () => {
             //this.getQuiz(1);
             //console.log('came here');
             this.tl.set('#truck1', { opacity: 1 });
             this.tl.set('#truck3', { opacity: 0 });
             this.tl.fromTo('#truck1', { x: 1013, y: -365 }, {
-              x: 1043, y: -380, duration: this.speed /2, onComplete: () => {
+              x: 1043, y: -380, duration: this.speed / 2, onComplete: () => {
                 this.getQuiz(6);
                 //this.action(6);
               }
@@ -181,11 +180,11 @@ export class GameComponent implements AfterViewInit {
 
       case 7:
         this.tl.fromTo('#truck1', { x: 1043, y: -380 }, {
-          x: 1209, y: -475, duration: this.speed /2, onComplete: () => {
+          x: 1209, y: -475, duration: this.speed / 2, onComplete: () => {
             this.tl.set('#truck1', { opacity: 0 });
             this.tl.set('#truck2', { opacity: 1 });
             this.tl.fromTo('#truck2', { x: 1000, y: -300 }, {
-              x: 1000, y: -300, duration: this.speed /2, onComplete: () => {
+              x: 1000, y: -300, duration: this.speed / 2, onComplete: () => {
                 this.getQuiz(7);
                 //this.action(7);
               }
@@ -279,7 +278,7 @@ export class GameComponent implements AfterViewInit {
     this.selectedQuiz.choosen = false;
     this.selectedQuiz.submitted = false;
     this.quizNo = step;
-    if(this.selectedQuiz.type == 'multiple_choice'){
+    if (this.selectedQuiz.type == 'multiple_choice') {
       this.selectedQuiz.choices.map(s => {
         s.selected = false
       });
@@ -332,7 +331,7 @@ export class GameComponent implements AfterViewInit {
       for (let i = 0; i < quiz.choices.length; i++) {
         const choice = quiz.choices[i];
         if (choice.correct != choice.selected && choice.selected != undefined) {
-          console.log('multiple-choice ', i, choice.correct , choice.selected);
+          console.log('multiple-choice ', i, choice.correct, choice.selected);
           wrong = true;
         }
       }
@@ -371,10 +370,12 @@ export class GameComponent implements AfterViewInit {
     const tl2 = new TimelineMax();
     tl2.set('#questNoAdd', { x: 930, y: 550 });
     tl2.fromTo('#questNoAdd', { opacity: 0 }, { opacity: 1, duration: 0.5 });
-    tl2.to('#questNoAdd', { x: 970, y: 90, delay: 0.5, duration: 0.5, onComplete: () => {
-      this.totalQuestion += 1;
-      this.cdRef.detectChanges();
-    } });
+    tl2.to('#questNoAdd', {
+      x: 970, y: 90, delay: 0.5, duration: 0.5, onComplete: () => {
+        this.totalQuestion += 1;
+        this.cdRef.detectChanges();
+      }
+    });
     tl2.to('#questNoAdd', {
       opacity: 0, duration: 0.5
     });
@@ -384,10 +385,12 @@ export class GameComponent implements AfterViewInit {
     const tl2 = new TimelineMax();
     tl2.set('#questNoAdd', { x: 1730, y: 320 });
     tl2.fromTo('#questNoAdd', { opacity: 0 }, { opacity: 1, duration: 0.5 });
-    tl2.to('#questNoAdd', { x: 970, y: 90, delay: 0.5, duration: 0.5, onComplete: () => {
-      this.totalQuestion += 1;
-      this.cdRef.detectChanges();
-    } });
+    tl2.to('#questNoAdd', {
+      x: 970, y: 90, delay: 0.5, duration: 0.5, onComplete: () => {
+        this.totalQuestion += 1;
+        this.cdRef.detectChanges();
+      }
+    });
     tl2.to('#questNoAdd', {
       opacity: 0, duration: 0.5
     });
@@ -411,4 +414,12 @@ export class GameComponent implements AfterViewInit {
   counter(i: number) {
     return new Array(i);
   }
+
+  reload() {
+    window.location.reload();
+  }
+  close() {
+    window.close();
+  }
+
 }
