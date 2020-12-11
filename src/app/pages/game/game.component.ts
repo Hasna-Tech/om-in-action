@@ -255,7 +255,7 @@ export class GameComponent implements AfterViewInit {
         // this.score = 800;
         if (this.score >= 800) {
           this.result.title = 'Congratulations! The product has been successfully delivered.';
-          this.result.bubble = 'Cargill came through for me on this order. These are the results that show me you can deliver on your promises and build my confidence that I will get excellent service from Cargill. Thankyou';
+          this.result.bubble = 'Cargill came through for me on this order. These are the results that show me you can deliver on your promises and build my confidence that I will get excellent service from Cargill. Thank you!';
         } else if (this.score >= 400) {
           this.result.title = 'Well done!';
           this.result.bubble = 'Recommend to replay the game. ';

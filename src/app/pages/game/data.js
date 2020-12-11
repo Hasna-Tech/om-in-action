@@ -308,7 +308,7 @@ What steps should you follow?`,
     feedback: {
       correct: `<h2 class='correct'>Great job! You are correct.</h2>
         <p>Always keep the customer informed when the product fulfillment will not meet the expected time so they can know when to expect it. So, once you confirm the delivery, be sure to reach out to the customer with an update on what to expect.</p>
-        <p>Also, it’s important that we work across functions as one team and to be proactive. We want to come across to our customers as being 1 Team. CTL and CS teams should collaborate and make sure that we proactively reach out to customers in case of exceptions.</p>
+        <p>Also, it’s important that we work across functions as one team and to be proactive. We want to come across to our customers as being One Team. CTL and CS teams should collaborate and make sure that we proactively reach out to customers in case of exceptions.</p>
         `,
       incorrect: `<h2 class='correct'>Good try, but this is incorrect. Option C is the correct answer.</h2>
         <p>CTL would not update the customer. CSRs are the contact point for customers in case of order or delivery issues.</p>
